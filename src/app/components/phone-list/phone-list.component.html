@@ -1,0 +1,195 @@
+    <!-- SECCIÓN PRINCIPAL -->
+
+<div class="container mt-4">
+  <h3 class="mb-4">Listado de Télefonos</h3>
+  <div *ngIf="phones.length > 0; else noPhones" class="col-lg-6 col-md-8 col-sm-12">
+    <div
+      *ngFor="let phone of phones; let i = index"
+      class="container d-flex justify-content-between align-items-center mb-3"
+    >
+      <div class="phone-containter w-100 d-flex">
+        <i class="bi bi-telephone-outbound"></i>
+        <p>{{ phone.number }}</p>
+      </div>
+      <div ngbDropdown class="drop-actions">
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm"
+          ngbDropdownToggle
+        >
+          <i class="bi bi-three-dots-vertical"></i>
+        </button>
+        <div ngbDropdownMenu>
+          <button
+            class="actions-btn"
+            (click)="setPhoneSelected(phone); openEdit(contentEdit)"
+            ngbDropdownItem
+          >
+            <i class="bi bi-pencil-square"></i> Editar
+          </button>
+          <button
+            class="actions-btn"
+            (click)="setPhoneSelected(phone); openDelete(contentDelete)"
+            ngbDropdownItem
+          >
+            <i class="bi bi-trash3"></i> Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-8 col-sm-12">
+    <div class="button-list">
+      <button type="button" (click)="open(content)" class="btn add_btn">
+        + Agregar Teléfono ({{ !phones ? 0 : phones.length }} / 3)
+      </button>
+    </div>
+  </div>
+    <!-- VALIDACIÓN SI NO HAY TELÉFONOS -->
+
+  <ng-template #noPhones>
+    <div class="no-phones">
+      <h5>Sín telefonos disponibles</h5>
+    </div>
+  </ng-template>
+
+    <!-- MODAL DE CREACIÓN -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Añadir numero télefonico
+      </h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <label for="exampleInputEmail1" class="form-label">Télefono</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"
+            ><i class="bi bi-telephone-outbound"></i
+          ></span>
+        </div>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="currentNumber"
+          placeholder="(999) 945 43"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button
+        type="button"
+        class="btn cancel-btn"
+        (click)="modal.dismiss('cancel click')"
+      >
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn action-btn"
+        (click)="modal.close('Save click')"
+      >
+        Guardar
+      </button>
+    </div>
+  </ng-template>
+    <!-- MODAL DE EDICIÓN -->
+
+  <ng-template id="modalEdit" #contentEdit let-modalEdit>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Editar numero télefonico
+      </h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalEdit.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <label for="exampleInputEmail1" class="form-label">Télefono</label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"
+            ><i class="bi bi-telephone-outbound"></i
+          ></span>
+        </div>
+        <input
+          #number
+          type="text"
+          [(ngModel)]="currentNumber"
+          class="form-control"
+          placeholder="(999) 945 43"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+      </div>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button
+        type="button"
+        class="btn cancel-btn"
+        (click)="modalEdit.dismiss('cancel click')"
+      >
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn action-btn"
+        (click)="modalEdit.close('Save click')"
+      >
+        Editar
+      </button>
+    </div>
+  </ng-template>
+  <!-- MODAL DE ELIMINACIÓN -->
+  <ng-template #contentDelete let-modalDelete>
+    <div class="modal-header">
+      <img class="icon-trash" src="/assets/images/trashIcon.png" alt="" />
+      <h4 class="modal-title delete-title" id="modal-basic-title">
+        Eliminar número télefonico
+      </h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalDelete.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <p class="delete-text">
+        ¿Seguro que quieres eliminar este elemento? Esta acción no se puede
+        deshacer
+      </p>
+
+      <p class="delete-number">
+        Eliminar: <span>{{ currentNumber }}</span>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn cancel-btn-delete"
+        (click)="modalDelete.dismiss('cancel click')"
+      >
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn delete-btn"
+        (click)="modalDelete.close('Save click')"
+      >
+        Eliminar
+      </button>
+    </div>
+  </ng-template>
+</div>

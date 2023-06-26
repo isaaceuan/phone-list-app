@@ -1,0 +1,139 @@
+.dropdown-toggle::after {
+	display:  none;
+}
+.phone-containter {
+    background: #f8ffd3;
+    align-items: center;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px #cbcbcb solid;
+}
+.phone-containter p {
+   margin-bottom:  0;
+}
+.phone-containter i {
+    margin:  0 10px;
+ }
+
+ .drop-actions{
+    margin-left: 15px;
+ }
+
+ .add_btn{
+    color: #0dbac6;
+    font-weight: bold;
+ }
+ .action-btn{
+    background: #0dbac6;
+    color: #fff;
+    width: 150px;
+    font-weight: bold;
+
+ }
+ .cancel-btn{
+    border: 1px grey solid;
+    font-weight: bold;
+    color: #4b4b4b;
+    width: 150px;
+ }
+
+ .cancel-btn-delete{
+    border: 1px grey solid;
+    font-weight: bold;
+    color: #4b4b4b;
+    width: 100px;
+ }
+ .delete-btn{
+    font-weight: bold;
+    color: #fff;
+    width: 100px;
+    background: red;
+
+ }
+
+ .delete-number span{
+    color: red;
+    font-weight: bold;
+ }
+ .delete-number{
+   color: #616161;
+   margin-left: 3.5em;
+}
+
+
+ ::ng-deep .create-modal .modal-dialog { 
+    max-width: 350px;
+}
+::ng-deep .edit-modal .modal-dialog { 
+    max-width: 350px;
+}
+.no-phones{
+    padding: 10px;
+    margin-bottom: 1em;
+
+}
+
+.delete-text {
+   color: #616161 !important;
+   margin-left: 3.5em;
+   margin-top: -20px;
+}
+
+.modal-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+	
+	background: #ffffd1;
+
+}
+
+.input-group-text {
+
+	background: #ffffd1;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    
+}
+
+label{
+    font-weight: bold;
+    color: gray;
+    line-height: 12px;
+    font-size: 13px;
+
+}
+h3{
+    color: #515151;
+}
+
+.actions-btn{
+    font-weight: 600;
+}
+.dropdown-toggle.btn.btn-outline-primary.btn-sm {
+	background: #e6e6e6 ;
+    border: 1px #a0a0a0 solid;
+    color: black;
+}
+
+.modal-header {
+
+ border-bottom:none;
+}
+
+.modal-footer {
+
+	border-top:none;
+
+}
+
+.icon-trash{
+    width: 30px;
+    position: absolute;
+    top: 20px;
+}
+
+.delete-title{
+    margin-left: 3.3em;
+}
